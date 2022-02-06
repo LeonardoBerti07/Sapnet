@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "881968817148",
+    "project_id": "sapnet-3182c",
+    "storage_bucket": "sapnet-3182c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:881968817148:android:88b416e5644e02c3808879",
+        "android_client_info": {
+          "package_name": "leonardoberti.example.sapnet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "881968817148-kgqid8v5ctqnckfv3lm5g62o3lkrc7gr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZFXeE5ePoAsx2jDTWh9FKEg3FB5cl6Bo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "881968817148-kgqid8v5ctqnckfv3lm5g62o3lkrc7gr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
