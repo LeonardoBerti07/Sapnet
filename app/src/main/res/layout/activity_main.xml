@@ -6,44 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/logIn2"
-        android:layout_width="313dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="160dp"
-        android:backgroundTint="#3B5998"
-        android:text="Log in with facebook"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="40dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="424dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/Facebook" />
-
-    <Button
-        android:id="@+id/logIn"
-        android:layout_width="313dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="12dp"
-
-        android:backgroundTint="#00D32F2F"
-        android:text="Log in with Google"
-        android:textAllCaps="false"
-        android:textColor="#787777"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logIn2"
-        app:strokeColor="#00FFFFFF" />
-
+    <!-- Scritta del bottone password -->
     <EditText
         android:id="@+id/password"
         android:layout_width="313dp"
@@ -59,6 +22,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sign_in" />
 
+    <!-- Scritta del bottone Username or Email -->
     <EditText
         android:id="@+id/sign_in"
         android:layout_width="313dp"
@@ -76,6 +40,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Bottone login -->
+
+    <!-- Scritta or -->
     <Button
         android:id="@+id/LogIn"
         android:layout_width="313dp"
@@ -83,32 +50,48 @@
         android:layout_marginTop="12dp"
         android:backgroundTint="#822433"
 
+        android:fontFamily="@font/roboto"
         android:text="log in"
-        app:layout_constraintEnd_toEndOf="parent"
 
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="364dp"
+        android:layout_width="26dp"
+        android:layout_height="21dp"
         android:fontFamily="@font/roboto_medium"
         android:text="OR"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/login_facebook"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/LogIn" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="44dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="492dp"
+    <ImageButton
+        android:id="@+id/login_facebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="140dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/Google" />
+        app:srcCompat="@drawable/login_facebook" />
+
+    <ImageButton
+        android:id="@+id/login_google"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="45dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_facebook"
+        app:srcCompat="@drawable/login_google" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
