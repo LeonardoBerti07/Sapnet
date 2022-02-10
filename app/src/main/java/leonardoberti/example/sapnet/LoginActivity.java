@@ -5,27 +5,48 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.api.GoogleApi;
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     EditText email;
     EditText password;
+    ImageButton show_or_hide_psw;
     private FirebaseAuth mAuth;
     GoogleSignInClient mGoogleSignInClient;
+
+    public void showPsw(View view){
+        password = (EditText) findViewById(R.id.password); //prendo l'edit text della password.
+        show_or_hide_psw = (ImageButton) findViewById(R.id.button_show_psw); //prendo l'imagebutton per cambiare l'occhietto.
+        if (password.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())) { //se è nascosto
+            //allora mostro la psw
+            password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            //setto l'icona in occhietto_hide_pass
+            show_or_hide_psw.setImageResource(R.drawable.occhietto_hide_pass);
+            password.setSelection(password.getText().length()); //questo per far rimanere il "puntatore" del testo alla fine
+        }
+        else { //se invece la psw è già visibile
+            //la metto invisibile
+            password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            //setto l'icona in occhietto_show_pass
+            show_or_hide_psw.setImageResource(R.drawable.occhietto_show_pass);
+            password.setSelection(password.getText().length()); //questo per far rimanere il "puntatore" del testo alla fine
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,14 +80,14 @@ public class MainActivity extends AppCompatActivity {
                     logIn();
                 } else {
                     // If sign in fails, display a message to the user and sign up the user
-                    mAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
+                    mAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                         public void onComplete(@NonNull Task<AuthResult> task1) {
                             if (task1.isSuccessful()) {
                                 // Sign in success, update UI with the signed-in user's information
                                 logIn();
                             } else {
                                 // If sign up fails, display a message to the user.
-                                Toast.makeText(MainActivity.this, "Sign up failed", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Sign up failed", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });

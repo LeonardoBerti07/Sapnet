@@ -4,11 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".LoginActivity">
 
     <!-- Scritta del bottone Username or Email -->
-
-    <!-- Scritta del bottone Credenziali dimenticate -->
 
     <EditText
         android:id="@+id/username"
@@ -17,8 +15,9 @@
         android:layout_marginTop="164dp"
         android:background="@drawable/button1"
         android:fontFamily="@font/roboto"
-        android:hint="    Username or email"
+        android:hint="Username or email"
         android:inputType="textPersonName"
+        android:padding="15dp"
         android:textAlignment="textStart"
         android:textColorHint="#939393"
         android:textSize="17sp"
@@ -26,6 +25,8 @@
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Bottone credenziali dimenticate -->
 
     <Button
         android:id="@+id/bottoneCredenzialiDimenticate"
@@ -55,8 +56,10 @@
         android:layout_marginTop="12dp"
         android:background="@drawable/button1"
         android:fontFamily="@font/roboto"
-        android:hint="    Password"
+        android:hint="Password"
         android:inputType="textPassword"
+        android:padding="15dp"
+        android:paddingEnd="50dp"
         android:textColorHint="#939393"
         android:textSize="17sp"
         app:endIconMode="password_toggle"
@@ -174,5 +177,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/linee_alte" />
+
+    <ImageButton
+        android:id="@+id/button_show_psw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="251dp"
+        android:layout_marginEnd="8dp"
+        android:background="#00FFFFFF"
+        android:onClick="showPsw"
+        app:layout_constraintBottom_toBottomOf="@+id/password"
+        app:layout_constraintEnd_toEndOf="@+id/password"
+        app:layout_constraintStart_toStartOf="@+id/password"
+        app:layout_constraintTop_toTopOf="@+id/password"
+        app:srcCompat="@drawable/occhietto_show_pass" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
