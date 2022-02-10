@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="colorPrimary">@color/white</color>
     <color name="colorAccent">@color/black</color>
+    <color name="rossoSapienza">#822433</color>
+    <color name="bluLink">#3366BB</color>
 </resources>

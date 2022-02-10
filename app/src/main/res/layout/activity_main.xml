@@ -6,92 +6,173 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- Scritta del bottone password -->
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="313dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/button1"
-        android:fontFamily="@font/roboto"
-        android:hint="    Password"
-        android:inputType="textPersonName"
-        android:textColorHint="#939393"
-        android:textSize="17sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
-
     <!-- Scritta del bottone Username or Email -->
+
+    <!-- Scritta del bottone Credenziali dimenticate -->
+
     <EditText
         android:id="@+id/username"
         android:layout_width="313dp"
         android:layout_height="51dp"
-        android:layout_marginTop="132dp"
+        android:layout_marginTop="164dp"
         android:background="@drawable/button1"
         android:fontFamily="@font/roboto"
         android:hint="    Username or email"
         android:inputType="textPersonName"
+        android:textAlignment="textStart"
         android:textColorHint="#939393"
         android:textSize="17sp"
-
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/bottoneCredenzialiDimenticate"
+        style="@android:style/Widget.Holo.Button.Borderless"
+        android:layout_width="168dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="225dp"
+        android:layout_marginEnd="79dp"
+        android:layout_marginBottom="18dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Credenziali dimenticate?"
+        android:textColor="#3366BB"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/scrittaOr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LogIn"
+        app:layout_constraintVertical_bias="0.35"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <!-- Scritta del bottone password -->
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="313dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/button1"
+        android:fontFamily="@font/roboto"
+        android:hint="    Password"
+        android:inputType="textPassword"
+        android:textColorHint="#939393"
+        android:textSize="17sp"
+        app:endIconMode="password_toggle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/username" />
+
     <!-- Bottone login -->
 
-    <!-- Scritta or -->
     <Button
         android:id="@+id/LogIn"
         android:layout_width="313dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="12dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="#822433"
 
         android:fontFamily="@font/roboto"
         android:text="log in"
 
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="26dp"
-        android:layout_height="21dp"
-        android:fontFamily="@font/roboto_medium"
-        android:text="OR"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/login_facebook"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LogIn" />
+    <!-- Logo facebook -->
 
     <ImageButton
         android:id="@+id/login_facebook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="140dp"
+        android:layout_marginBottom="164dp"
         android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/login_facebook" />
+        app:srcCompat="@drawable/login_facebook"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <!-- Logo google -->
 
     <ImageButton
         android:id="@+id/login_google"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="45dp"
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_facebook"
-        app:srcCompat="@drawable/login_google" />
+        app:srcCompat="@drawable/login_google"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <!-- Scritta del bottone Iscrizione -->
+
+    <Button
+        android:id="@+id/bottoneIscriviti"
+        style="@android:style/Widget.Holo.Button.Borderless"
+        android:layout_width="215dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="4dp"
+        android:autoSizeTextType="uniform"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Non sei ancora iscritto? Iscriviti."
+        android:textColor="#3366BB"
+        android:textSize="11sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_google"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <!-- Scritta Sapnet -->
+
+    <TextView
+        android:id="@+id/scrittaSapnet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/font_logo"
+        android:text="Sapnet"
+        android:textColor="@color/rossoSapienza"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toTopOf="@+id/username"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.633" />
+
+    <!-- Scritta OR -->
+
+    <ImageView
+        android:id="@+id/scrittaOr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/login_facebook"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LogIn"
+        app:srcCompat="@drawable/scritta_or" />
+
+    <!-- Linee alte -->
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/linee_alte" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
