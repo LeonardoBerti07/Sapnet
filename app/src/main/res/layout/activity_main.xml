@@ -192,6 +192,7 @@
         app:layout_constraintEnd_toEndOf="@+id/password"
         app:layout_constraintStart_toStartOf="@+id/password"
         app:layout_constraintTop_toTopOf="@+id/password"
-        app:srcCompat="@drawable/occhietto_show_pass" />
+        app:srcCompat="@drawable/occhietto_show_pass"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
