@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tab_bar"
+    app:startDestination="@id/home2">
+
+    <fragment
+        android:id="@+id/home2"
+        android:name="leonardoberti.example.sapnet.home"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/ricerca"
+        android:name="leonardoberti.example.sapnet.ricerca"
+        android:label="fragment_ricerca"
+        tools:layout="@layout/fragment_ricerca" />
+    <fragment
+        android:id="@+id/seguiti"
+        android:name="leonardoberti.example.sapnet.seguiti"
+        android:label="fragment_seguiti"
+        tools:layout="@layout/fragment_seguiti" />
+    <fragment
+        android:id="@+id/notifiche"
+        android:name="leonardoberti.example.sapnet.notifiche"
+        android:label="fragment_notifiche"
+        tools:layout="@layout/fragment_notifiche" />
+    <fragment
+        android:id="@+id/profilo"
+        android:name="leonardoberti.example.sapnet.profilo"
+        android:label="fragment_profilo"
+        tools:layout="@layout/fragment_profilo" />
+</navigation>

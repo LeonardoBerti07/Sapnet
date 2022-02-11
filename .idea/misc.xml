@@ -6,14 +6,21 @@
         <entry key="..\:/Users/Gabriele/Sapnet2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Users/Gabriele/Sapnet2/app/src/main/res/drawable/button1.xml" value="0.1985" />
         <entry key="..\:/Users/Gabriele/Sapnet2/app/src/main/res/drawable/ciaone.xml" value="0.1" />
+        <entry key="..\:/Users/Gabriele/Sapnet2/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.257" />
         <entry key="..\:/Users/Gabriele/Sapnet2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/Users/Gabriele/Sapnet2/app/src/main/res/drawable/riquadro_plaintext.xml" value="0.1" />
         <entry key="..\:/Users/Gabriele/Sapnet2/app/src/main/res/font/cookie.xml" value="0.26875" />
-        <entry key="..\:/Users/Gabriele/Sapnet2/app/src/main/res/layout/activity_home_page.xml" value="0.22780797101449277" />
+        <entry key="..\:/Users/Gabriele/Sapnet2/app/src/main/res/layout/activity_home_page.xml" value="0.264" />
         <entry key="..\:/Users/Gabriele/Sapnet2/app/src/main/res/layout/activity_home_page2.xml" value="0.1" />
-        <entry key="..\:/Users/Gabriele/Sapnet2/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Users/Gabriele/Sapnet2/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/Gabriele/Sapnet2/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/byaxe/Desktop/Cartellone/Sapnet/app/src/main/res/layout/activity_login.xml" value="0.67" />
+        <entry key="..\:/Users/Gabriele/Sapnet2/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/Users/Gabriele/Sapnet2/app/src/main/res/layout/fragment_notifiche.xml" value="0.2115036231884058" />
+        <entry key="..\:/Users/Gabriele/Sapnet2/app/src/main/res/layout/fragment_profilo.xml" value="0.2115036231884058" />
+        <entry key="..\:/Users/Gabriele/Sapnet2/app/src/main/res/layout/fragment_ricerca.xml" value="0.28208092485549136" />
+        <entry key="..\:/Users/Gabriele/Sapnet2/app/src/main/res/layout/fragment_seguiti.xml" value="0.28208092485549136" />
+        <entry key="..\:/Users/Gabriele/Sapnet2/app/src/main/res/menu/menu_homepage.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Gabriele/Sapnet2/app/src/main/res/menu/menu_navigation.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/byaxe/Desktop/Cartellone/Sapnet2/app/src/main/res/layout/activity_home_page2.xml" value="0.2671875" />
         <entry key="..\:/Users/byaxe/Desktop/Cartellone/Sapnet2/app/src/main/res/layout/activity_main.xml" value="0.75" />
       </map>
@@ -28,7 +35,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.22" />
+        <option name="scale" value="0.1" />
       </ProjectState>
     </option>
   </component>
