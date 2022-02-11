@@ -21,7 +21,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class LoginActivity extends AppCompatActivity {
+public class Login extends AppCompatActivity {
 
     EditText email;
     EditText password;
@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
 
@@ -80,14 +80,14 @@ public class LoginActivity extends AppCompatActivity {
                     logIn();
                 } else {
                     // If sign in fails, display a message to the user and sign up the user
-                    mAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                    mAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
                         public void onComplete(@NonNull Task<AuthResult> task1) {
                             if (task1.isSuccessful()) {
                                 // Sign in success, update UI with the signed-in user's information
                                 logIn();
                             } else {
                                 // If sign up fails, display a message to the user.
-                                Toast.makeText(LoginActivity.this, "Sign up failed", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Login.this, "Sign up failed", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
