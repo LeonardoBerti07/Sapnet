@@ -11,6 +11,7 @@
         android:theme="@style/Theme.Sapnet">
         <activity
             android:name=".HomePage"
+            android:theme="@style/Theme.SapnetHomePage"
             android:exported="false" />
         <activity
             android:name=".Login"
