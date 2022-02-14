@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    style="@style/Theme.Sapnet"
     tools:context=".Login">
 
     <!-- Scritta del bottone Username or Email -->
@@ -17,13 +17,12 @@
         android:layout_marginBottom="444dp"
         android:background="@drawable/button1"
         android:fontFamily="@font/roboto"
-        android:hint="Username or Email"
+        android:hint="Username or email"
         android:inputType="textPersonName"
         android:padding="15dp"
         android:textAlignment="textStart"
         android:textColorHint="#939393"
         android:textSize="17sp"
-        android:autofillHints="AUTOFILL_HINT_USERNAME"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
@@ -85,7 +84,7 @@
         android:backgroundTint="#822433"
         android:fontFamily="@font/roboto"
 
-        android:onClick="goClicked"
+        android:onClick="HomePage"
         android:text="log in"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -143,7 +142,6 @@
         android:autoSizeTextType="uniform"
         android:backgroundTint="@color/white"
         android:fontFamily="@font/roboto_medium"
-        android:onClick="signUp"
         android:text="Non sei ancora iscritto? Iscriviti."
         android:textColor="#3366BB"
         android:textSize="11sp"

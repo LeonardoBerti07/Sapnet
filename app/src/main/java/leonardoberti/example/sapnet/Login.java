@@ -101,6 +101,9 @@ public class Login extends AppCompatActivity {
 
     }
 
+    public void HomePage(View view){
+        setContentView(R.layout.activity_home_page); //solo per ora in modo da poter provare l'homepage nell'emulatore
+    }
     public void showPsw(View view){
         password = (EditText) findViewById(R.id.password); //prendo l'edit text della password.
         show_or_hide_psw = (ImageButton) findViewById(R.id.button_show_psw); //prendo l'imagebutton per cambiare l'occhietto.
