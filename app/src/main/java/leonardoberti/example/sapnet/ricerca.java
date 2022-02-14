@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link ricerca#newInstance} factory method to
+ * Use the {@link Ricerca#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ricerca extends Fragment {
+public class Ricerca extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +24,7 @@ public class ricerca extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public ricerca() {
+    public Ricerca() {
         // Required empty public constructor
     }
 
@@ -34,11 +34,11 @@ public class ricerca extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment ricerca.
+     * @return A new instance of fragment Ricerca.
      */
     // TODO: Rename and change types and number of parameters
-    public static ricerca newInstance(String param1, String param2) {
-        ricerca fragment = new ricerca();
+    public static Ricerca newInstance(String param1, String param2) {
+        Ricerca fragment = new Ricerca();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

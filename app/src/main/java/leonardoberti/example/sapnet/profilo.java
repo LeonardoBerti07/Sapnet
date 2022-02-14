@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link profilo#newInstance} factory method to
+ * Use the {@link Profilo#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class profilo extends Fragment {
+public class Profilo extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +24,7 @@ public class profilo extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public profilo() {
+    public Profilo() {
         // Required empty public constructor
     }
 
@@ -34,11 +34,11 @@ public class profilo extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment profilo.
+     * @return A new instance of fragment Profilo.
      */
     // TODO: Rename and change types and number of parameters
-    public static profilo newInstance(String param1, String param2) {
-        profilo fragment = new profilo();
+    public static Profilo newInstance(String param1, String param2) {
+        Profilo fragment = new Profilo();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

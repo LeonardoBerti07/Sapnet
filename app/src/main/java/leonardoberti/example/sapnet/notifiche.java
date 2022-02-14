@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link notifiche#newInstance} factory method to
+ * Use the {@link Notifiche#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class notifiche extends Fragment {
+public class Notifiche extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +24,7 @@ public class notifiche extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public notifiche() {
+    public Notifiche() {
         // Required empty public constructor
     }
 
@@ -34,11 +34,11 @@ public class notifiche extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment notifiche.
+     * @return A new instance of fragment Notifiche.
      */
     // TODO: Rename and change types and number of parameters
-    public static notifiche newInstance(String param1, String param2) {
-        notifiche fragment = new notifiche();
+    public static Notifiche newInstance(String param1, String param2) {
+        Notifiche fragment = new Notifiche();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link seguiti#newInstance} factory method to
+ * Use the {@link Seguiti#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class seguiti extends Fragment {
+public class Seguiti extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +24,7 @@ public class seguiti extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public seguiti() {
+    public Seguiti() {
         // Required empty public constructor
     }
 
@@ -34,11 +34,11 @@ public class seguiti extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment seguiti.
+     * @return A new instance of fragment Seguiti.
      */
     // TODO: Rename and change types and number of parameters
-    public static seguiti newInstance(String param1, String param2) {
-        seguiti fragment = new seguiti();
+    public static Seguiti newInstance(String param1, String param2) {
+        Seguiti fragment = new Seguiti();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
