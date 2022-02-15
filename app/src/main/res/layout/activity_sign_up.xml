@@ -10,8 +10,8 @@
         android:id="@+id/Username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Username"
@@ -22,8 +22,8 @@
         android:id="@+id/Password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="204dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="212dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Password"
@@ -39,10 +39,10 @@
         android:text="University"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.079"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.516" />
+        app:layout_constraintVertical_bias="0.449" />
 
     <EditText
         android:id="@+id/Email"
@@ -52,9 +52,9 @@
         android:inputType="textPersonName"
         android:text="Email"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.079"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="480dp" />
+        tools:layout_editor_absoluteY="450dp" />
 
     <Button
         android:id="@+id/button"
@@ -72,8 +72,8 @@
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="372dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="80dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Nome"
@@ -84,8 +84,8 @@
         android:id="@+id/surname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="428dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="144dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Cognome"
@@ -96,19 +96,21 @@
         android:id="@+id/subject"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="100dp"
+        android:layout_marginEnd="184dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Materia"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="80dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.633" />
 
     <EditText
         android:id="@+id/corso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="260dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="328dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Corso"

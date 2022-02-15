@@ -21,10 +21,13 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class SignUp extends AppCompatActivity {
@@ -49,6 +52,7 @@ public class SignUp extends AppCompatActivity {
     }
 
     public void SignUp (View view) {
+
         if (!Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches()) {
             email.setError("L'email non è corretta");
             email.requestFocus();
@@ -57,6 +61,21 @@ public class SignUp extends AppCompatActivity {
         if (password.getText().toString().length() < 6 )  {
             password.setError("La password deve avere almeno 6 caratteri");
             password.requestFocus();
+            return;
+        }
+        if (username.getText().toString().length() < 6) {
+            username.setError("Lo username deve avere almeno 6 caratteri");
+            username.requestFocus();
+            return;
+        }
+        if (username.getText().toString().length() > 16) {
+            username.setError("Lo username può avere al massimo 16 caratteri");
+            username.requestFocus();
+            return;
+        }
+        if (!username.getText().toString().matches("^[a-zA-Z0-9._-]*$")) {
+            username.setError("Lo username può contenere solo numeri e/o lettere");
+            username.requestFocus();
             return;
         }
         AlreadyExist(username.getText().toString());
@@ -70,46 +89,71 @@ public class SignUp extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                        username.setError("Questo username è già stato preso");
+                        username.setError("Questo username è già utilizzato");
                         username.requestFocus();
                     } else {
-                        mAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnCompleteListener(SignUp.this, new OnCompleteListener<AuthResult>() {
-                            public void onComplete(@NonNull Task<AuthResult> task1) {
-                                if (task1.isSuccessful()) {
-                                    Map<String, Object> user = new HashMap<>();
-                                    user.put("Email", email.getText().toString());
-                                    user.put("Friends", new ArrayList<String>());
-                                    user.put("Courses", new ArrayList<String>());
-                                    user.put("Instagram", "");
-                                    user.put("Name", "diocane");
-                                    user.put("Password", password.getText().toString());
-                                    user.put("PostCreated", new ArrayList<String>());
-                                    user.put("PostVote", new ArrayList<>());
-                                    user.put("Subject", new ArrayList<String>());
-                                    user.put("Surname", "gesù ladrone");
-                                    user.put("University", "La Sapienza");
-                                    user.put("TimeCreation", new Timestamp(System.currentTimeMillis()));
-                                    db.collection("User").document(username.getText().toString())
-                                            .set(user)
-                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                @Override
-                                                public void onSuccess(Void aVoid) {
-                                                    Intent intent = new Intent(getApplicationContext(), HomePage.class);
-                                                    startActivity(intent);
-                                                }
-                                            })
-                                            .addOnFailureListener(new OnFailureListener() {
-                                                @Override
-                                                public void onFailure(@NonNull Exception e) {
-                                                    Toast.makeText(SignUp.this, "errore nel creare l'account, riprova", Toast.LENGTH_SHORT).show();
-                                                }
-                                            });
+                        //controllo se l'email è già stata presa
+                        String emailUnder = email.getText().toString().toLowerCase(Locale.ROOT);
+                        db.collection("User")
+                                .whereEqualTo("Email", emailUnder)
+                                .get()
+                                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                        if (task.isSuccessful()) {
+                                            flag = true;
+                                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                                flag = false;
+                                                Log.i("ESISTE GIà", "sisi");
+                                            }
+                                            if (flag) {
+                                                mAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnCompleteListener(SignUp.this, new OnCompleteListener<AuthResult>() {
+                                                    public void onComplete(@NonNull Task<AuthResult> task1) {
+                                                        if (task1.isSuccessful()) {
+                                                            Map<String, Object> user = new HashMap<>();
+                                                            user.put("Email", email.getText().toString());
+                                                            user.put("Friends", new ArrayList<String>());
+                                                            user.put("Courses", new ArrayList<String>());
+                                                            user.put("Instagram", "");
+                                                            user.put("Name", "diocane");
+                                                            user.put("Password", password.getText().toString());
+                                                            user.put("PostCreated", new ArrayList<String>());
+                                                            user.put("PostVote", new ArrayList<>());
+                                                            user.put("Subject", new ArrayList<String>());
+                                                            user.put("Surname", "gesù ladrone");
+                                                            user.put("University", "La Sapienza");
+                                                            user.put("TimeCreation", new Timestamp(System.currentTimeMillis()));
+                                                            db.collection("User").document(username.getText().toString())
+                                                                    .set(user)
+                                                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                        @Override
+                                                                        public void onSuccess(Void aVoid) {
+                                                                            Intent intent = new Intent(getApplicationContext(), HomePage.class);
+                                                                            startActivity(intent);
+                                                                        }
+                                                                    })
+                                                                    .addOnFailureListener(new OnFailureListener() {
+                                                                        @Override
+                                                                        public void onFailure(@NonNull Exception e) {
+                                                                            Toast.makeText(SignUp.this, "errore nel creare l'account, riprova", Toast.LENGTH_SHORT).show();
+                                                                        }
+                                                                    });
 
-                                } else {
-                                    Toast.makeText(SignUp.this, "errore nel creare l'account, riprova", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
+                                                        } else {
+                                                            Toast.makeText(SignUp.this, "errore nel creare l'account, riprova", Toast.LENGTH_SHORT).show();
+                                                        }
+                                                    }
+                                                });
+                                            }
+                                            else {
+                                                username.setError("Questa email è già utilizzata");
+                                                username.requestFocus();
+                                            }
+                                        } else {
+                                            Log.i("ERRORE", "non sono riuscito a fare la query");
+                                        }
+                                    }
+                                });
                     }
                 } else {
                     Log.i("ERRORE", "non sono riuscito a fare la query");
