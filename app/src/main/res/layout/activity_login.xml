@@ -31,8 +31,6 @@
 
     <!-- Bottone credenziali dimenticate -->
 
-    <!-- Scritta del bottone password -->
-
     <Button
         android:id="@+id/bottoneCredenzialiDimenticate"
         style="@android:style/Widget.Holo.Button.Borderless"
@@ -50,6 +48,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/LogIn"
         tools:ignore="TouchTargetSizeCheck" />
+
+    <!-- Scritta del bottone password -->
 
     <EditText
         android:id="@+id/password"
@@ -80,17 +80,20 @@
         android:layout_height="57dp"
         android:layout_marginTop="286dp"
         android:layout_marginBottom="316dp"
+
         android:background="@drawable/button1"
         android:backgroundTint="#822433"
         android:fontFamily="@font/roboto"
         android:onClick="goClicked"
+
         android:text="log in"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <!-- Logo facebook -->
 
@@ -149,9 +152,9 @@
         app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="TouchTargetSizeCheck" />
 
     <!-- Scritta Sapnet -->
@@ -193,6 +196,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/linee_alte" />
+
+    <!-- Bottone occhiolino -->
 
     <ImageButton
         android:id="@+id/button_show_psw"

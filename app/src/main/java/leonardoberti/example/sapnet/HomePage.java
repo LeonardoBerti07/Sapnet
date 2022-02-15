@@ -25,6 +25,4 @@ public class HomePage extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), Login.class);
         startActivity(intent);
     }
-
-
 }

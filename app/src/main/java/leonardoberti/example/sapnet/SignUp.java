@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
@@ -34,20 +36,60 @@ public class SignUp extends AppCompatActivity {
 
     EditText email;
     EditText password;
+    EditText password2;
     EditText university;
     EditText username;
+    ImageButton show_or_hide_psw;
+    ImageButton show_or_hide_psw2;
     Boolean flag;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FirebaseAuth mAuth;
+
+    public void showPsw(View view){
+        password = (EditText) findViewById(R.id.password); //prendo l'edit text della password.
+        show_or_hide_psw = (ImageButton) findViewById(R.id.button_show_psw); //prendo l'imagebutton per cambiare l'occhietto.
+        if (password.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())) { //se è nascosto
+            //allora mostro la psw
+            password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            //setto l'icona in occhietto_hide_pass
+            show_or_hide_psw.setImageResource(R.drawable.occhietto_hide_pass);
+            password.setSelection(password.getText().length()); //questo per far rimanere il "puntatore" del testo alla fine
+        }
+        else { //se invece la psw è già visibile
+            //la metto invisibile
+            password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            //setto l'icona in occhietto_show_pass
+            show_or_hide_psw.setImageResource(R.drawable.occhietto_show_pass);
+            password.setSelection(password.getText().length()); //questo per far rimanere il "puntatore" del testo alla fine
+        }
+    }
+
+    public void showPsw2(View view){
+        password2 = (EditText) findViewById(R.id.ripeti_password); //prendo l'edit text della password.
+        show_or_hide_psw2 = (ImageButton) findViewById(R.id.button_show_psw2); //prendo l'imagebutton per cambiare l'occhietto.
+        if (password2.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())) { //se è nascosto
+            //allora mostro la psw
+            password2.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            //setto l'icona in occhietto_hide_pass
+            show_or_hide_psw2.setImageResource(R.drawable.occhietto_hide_pass);
+            password2.setSelection(password2.getText().length()); //questo per far rimanere il "puntatore" del testo alla fine
+        }
+        else { //se invece la psw è già visibile
+            //la metto invisibile
+            password2.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            //setto l'icona in occhietto_show_pass
+            show_or_hide_psw2.setImageResource(R.drawable.occhietto_show_pass);
+            password2.setSelection(password2.getText().length()); //questo per far rimanere il "puntatore" del testo alla fine
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-        email = findViewById(R.id.Email);
-        password = findViewById(R.id.Password);
-        university = findViewById(R.id.University);
-        username = findViewById(R.id.Username);
+        email = findViewById(R.id.email);
+        password = findViewById(R.id.password);
+        username = findViewById(R.id.username);
         mAuth = FirebaseAuth.getInstance();
     }
 
