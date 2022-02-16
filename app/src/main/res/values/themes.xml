@@ -29,7 +29,16 @@
         <item name="colorOnSecondary">@color/black</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:statusBarColor" tools:targetApi="l">@color/white</item>
-        <item name="android:textColor"> @color/rossoSapienza </item>
+        <item name="android:textColor">@color/rossoSapienza</item>
     </style>
+
+    <style name="Theme.Sapnet.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Sapnet.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.Sapnet.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>
