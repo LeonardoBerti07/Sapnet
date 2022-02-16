@@ -12,13 +12,14 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:itemTextColor="@color/rossoSapienza"
         android:background="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:itemIconTint="@color/rossoSapienza"
+        app:itemTextColor="@color/rossoSapienza"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/menu_nav_bar_homepage"/>
+        app:menu="@menu/menu_nav_bar_homepage" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
@@ -30,25 +31,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/navigationbar_homepage"
-        />
+        app:navGraph="@navigation/navigationbar_homepage" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="339dp"
+        android:layout_marginTop="525dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="78dp"
         android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/piu_crea_post"
-        tools:layout_editor_absoluteY="525dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/piu_crea_post" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton2"
-        android:layout_width="79dp"
-        android:layout_height="67dp"
-        android:clickable="true"
-        app:srcCompat="@android:drawable/ic_input_add"
-        tools:layout_editor_absoluteX="140dp"
-        tools:layout_editor_absoluteY="500dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -71,8 +71,6 @@
         android:id="@+id/password"
         android:layout_width="313dp"
         android:layout_height="51dp"
-        android:layout_marginTop="412dp"
-        android:layout_marginBottom="196dp"
         android:background="@drawable/button1"
         android:fontFamily="@font/roboto"
         android:hint="Password"
@@ -83,11 +81,10 @@
         android:textColorHint="#939393"
         android:textSize="17sp"
         app:endIconMode="password_toggle"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/ripeti_password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/cognome" />
 
     <EditText
         android:id="@+id/ripeti_password"

@@ -13,6 +13,10 @@
             android:name=".ChooseCourse2"
             android:exported="false" />
         <activity
+            android:name=".SignUp_AggiungiCorsoPreferito"
+            android:theme="@style/Theme.SchermateBenvenuto"
+            android:exported="false" />
+        <activity
             android:name=".CreatePost"
             android:exported="false" />
         <activity
