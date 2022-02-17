@@ -38,6 +38,7 @@ public class ChooseCourse2 extends AppCompatActivity {
         list.setOnItemClickListener((new AdapterView.OnItemClickListener() {       //per far fare qualcosa quando clicca su un elemento della lista, prende le informazioni/vede del clock subito dopo il click, quindi se l’elemento da check diventa uncheck vedrà che è uncheck.
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
             }
         }));
         field.addTextChangedListener(new TextWatcher() {
