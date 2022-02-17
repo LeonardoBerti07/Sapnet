@@ -3,6 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Gabriele/Sapnet/app/src/main/res/drawable/cambio_icona_nav_bar.xml" value="0.128" />
+        <entry key="..\:/Users/Gabriele/Sapnet/app/src/main/res/drawable/cambio_icona_notifiche_nav_bar.xml" value="0.205" />
+        <entry key="..\:/Users/Gabriele/Sapnet/app/src/main/res/drawable/cambio_icona_profilo_nav_bar.xml" value="0.205" />
+        <entry key="..\:/Users/Gabriele/Sapnet/app/src/main/res/drawable/cambio_icona_ricerca_nav_bar.xml" value="0.128" />
+        <entry key="..\:/Users/Gabriele/Sapnet/app/src/main/res/drawable/cambio_icona_stella_nav_bar.xml" value="0.205" />
+        <entry key="..\:/Users/Gabriele/Sapnet/app/src/main/res/layout/activity_crea_account.xml" value="0.1" />
+        <entry key="..\:/Users/Gabriele/Sapnet/app/src/main/res/layout/activity_create_post.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Gabriele/Sapnet/app/src/main/res/layout/activity_home_page.xml" value="0.264" />
+        <entry key="..\:/Users/Gabriele/Sapnet/app/src/main/res/layout/activity_login.xml" value="0.22" />
+        <entry key="..\:/Users/Gabriele/Sapnet/app/src/main/res/layout/activity_sign_up.xml" value="0.264" />
+        <entry key="..\:/Users/Gabriele/Sapnet/app/src/main/res/layout/activity_sign_up_aggiungi_corso_preferito.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Gabriele/Sapnet/app/src/main/res/layout/activity_sign_up_preferenze_corsi.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Gabriele/Sapnet/app/src/main/res/menu/menu_nav_bar_homepage.xml" value="0.23854166666666668" />
+        <entry key="..\:/Users/Gabriele/Sapnet/app/src/main/res/menu/salta.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Gabriele/Sapnet2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Users/Gabriele/Sapnet2/app/src/main/res/drawable/button1.xml" value="0.1985" />
         <entry key="..\:/Users/Gabriele/Sapnet2/app/src/main/res/drawable/ciaone.xml" value="0.1" />
@@ -28,18 +42,10 @@
         <entry key="..\:/Users/byaxe/Desktop/Cartellone/Sapnet/app/src/main/res/menu/tab_bar_menu.xml" value="0.24791666666666667" />
         <entry key="..\:/Users/byaxe/Desktop/Cartellone/Sapnet2/app/src/main/res/layout/activity_home_page2.xml" value="0.2671875" />
         <entry key="..\:/Users/byaxe/Desktop/Cartellone/Sapnet2/app/src/main/res/layout/activity_main.xml" value="0.75" />
-        <entry key="..\:/Users/leona/AndroidStudioProject/Sapnet/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3515625" />
-        <entry key="..\:/Users/leona/AndroidStudioProject/Sapnet/app/src/main/res/layout/activity_choose_course.xml" value="0.1431159420289855" />
-        <entry key="..\:/Users/leona/AndroidStudioProject/Sapnet/app/src/main/res/layout/activity_choose_course1.xml" value="0.21" />
-        <entry key="..\:/Users/leona/AndroidStudioProject/Sapnet/app/src/main/res/layout/activity_choose_course2.xml" value="0.22" />
         <entry key="..\:/Users/leona/AndroidStudioProject/Sapnet/app/src/main/res/layout/activity_create_post.xml" value="0.3489583333333333" />
         <entry key="..\:/Users/leona/AndroidStudioProject/Sapnet/app/src/main/res/layout/activity_home_page.xml" value="0.33516758379189593" />
-        <entry key="..\:/Users/leona/AndroidStudioProject/Sapnet/app/src/main/res/layout/activity_login.xml" value="0.34010416666666665" />
         <entry key="..\:/Users/leona/AndroidStudioProject/Sapnet/app/src/main/res/layout/activity_sign_up.xml" value="0.3671875" />
-        <entry key="..\:/Users/leona/AndroidStudioProject/Sapnet/app/src/main/res/layout/activity_sign_up_aggiungi_corso_preferito.xml" value="0.3098958333333333" />
-        <entry key="..\:/Users/leona/AndroidStudioProject/Sapnet/app/src/main/res/layout/content_choose_course1.xml" value="0.12182971014492754" />
         <entry key="..\:/Users/leona/AndroidStudioProject/Sapnet/app/src/main/res/layout/fragment_home.xml" value="0.3671875" />
-        <entry key="..\:/Users/leona/AndroidStudioProject/Sapnet/app/src/main/res/layout/layout_dialog.xml" value="0.33" />
       </map>
     </option>
   </component>

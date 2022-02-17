@@ -7,27 +7,27 @@
 
     <fragment
         android:id="@+id/home2"
-        android:name="leonardoberti.example.sapnet.Home"
+        android:name="leonardoberti.example.sapnet.viste.Home"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/ricerca"
-        android:name="leonardoberti.example.sapnet.Ricerca"
+        android:name="leonardoberti.example.sapnet.viste.Ricerca"
         android:label="fragment_ricerca"
         tools:layout="@layout/fragment_ricerca" />
     <fragment
         android:id="@+id/seguiti"
-        android:name="leonardoberti.example.sapnet.Seguiti"
+        android:name="leonardoberti.example.sapnet.viste.Seguiti"
         android:label="fragment_seguiti"
         tools:layout="@layout/fragment_seguiti" />
     <fragment
         android:id="@+id/notifiche"
-        android:name="leonardoberti.example.sapnet.Notifiche"
+        android:name="leonardoberti.example.sapnet.viste.Notifiche"
         android:label="fragment_notifiche"
         tools:layout="@layout/fragment_notifiche" />
     <fragment
         android:id="@+id/profilo"
-        android:name="leonardoberti.example.sapnet.Profilo"
+        android:name="leonardoberti.example.sapnet.viste.Profilo"
         android:label="fragment_profilo"
         tools:layout="@layout/fragment_profilo" />
 </navigation>

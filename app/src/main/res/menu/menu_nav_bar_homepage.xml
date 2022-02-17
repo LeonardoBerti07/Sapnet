@@ -3,17 +3,17 @@
     
     <item android:title="Home"
         android:id="@+id/home2"
-        android:icon="@drawable/nav_icon_home"/>
+        android:icon="@drawable/cambio_icona_home_nav_bar" />
     <item android:title="Ricerca"
         android:id="@+id/ricerca"
-        android:icon="@drawable/nav_icon_ricerca"/>
+        android:icon="@drawable/cambio_icona_ricerca_nav_bar"/>
     <item android:title="Seguiti"
         android:id="@+id/seguiti"
-        android:icon="@drawable/nav_icon_stella"/>
+        android:icon="@drawable/cambio_icona_stella_nav_bar"/>
     <item android:title="Notifiche"
         android:id="@+id/notifiche"
-        android:icon="@drawable/nav_icon_notifiche"/>
+        android:icon="@drawable/cambio_icona_notifiche_nav_bar"/>
     <item android:title="Profilo"
         android:id="@+id/profilo"
-        android:icon="@drawable/nav_icon_profilo"/>
+        android:icon="@drawable/cambio_icona_profilo_nav_bar"/>
 </menu>
