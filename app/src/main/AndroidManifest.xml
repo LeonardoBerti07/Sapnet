@@ -10,12 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Sapnet" >
         <activity
-            android:name=".ChooseCourse2"
+            android:name=".ChooseCourse"
             android:exported="false" />
         <activity
             android:name=".SignUp_AggiungiCorsoPreferito"
-            android:theme="@style/Theme.SchermateBenvenuto"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.SchermateBenvenuto" />
         <activity
             android:name=".CreatePost"
             android:exported="false" />

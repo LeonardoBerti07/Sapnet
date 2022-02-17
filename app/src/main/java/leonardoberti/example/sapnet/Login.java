@@ -38,7 +38,7 @@ public class Login extends AppCompatActivity {
         email = findViewById(R.id.username);
         password = findViewById(R.id.password);
         mAuth = FirebaseAuth.getInstance();
-        Intent intent = new Intent(getApplicationContext(), CreatePost.class);
+        Intent intent = new Intent(getApplicationContext(), SignUp_AggiungiCorsoPreferito.class);
         startActivity(intent);
         if (mAuth.getCurrentUser() != null) { // So if it's not equal to null, that means that we have a signed user, which then means we want to log in.
             Log.i(mAuth.getCurrentUser().getEmail(), "we skip the authentication because we are already logged in");

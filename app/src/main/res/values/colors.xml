@@ -10,6 +10,7 @@
     <color name="colorPrimary">@color/white</color>
     <color name="colorAccent">@color/black</color>
     <color name="rossoSapienza">#822433</color>
+    <color name="trasparente">#00822433</color>
     <color name="bluLink">#3366BB</color>
     <color name="background">#fffafafa</color>
     <color name="action_bar_color">#F8F7F7</color>
