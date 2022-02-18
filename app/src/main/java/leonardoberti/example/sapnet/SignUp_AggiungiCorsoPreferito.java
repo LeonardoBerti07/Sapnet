@@ -42,20 +42,6 @@ public class SignUp_AggiungiCorsoPreferito extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_aggiungi_corso_preferito);
 
-        searchView = (SearchView) findViewById(R.id.searchView);
-        searchView.setIconifiedByDefault(false);
-        searchView.setOnQueryTextFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (hasFocus) {
-                    if (activityStartup) {
-                        searchView.clearFocus();
-                        activityStartup = false;
-                    }
-                }
-            }
-        });
-
         ActionBar actionBar;
         actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);

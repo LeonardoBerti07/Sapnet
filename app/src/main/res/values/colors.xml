@@ -14,4 +14,5 @@
     <color name="bluLink">#3366BB</color>
     <color name="background">#fffafafa</color>
     <color name="action_bar_color">#F8F7F7</color>
+    <color name="search_bar_color">#DEDBDB</color>
 </resources>
