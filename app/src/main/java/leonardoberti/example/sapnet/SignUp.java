@@ -39,6 +39,8 @@ public class SignUp extends AppCompatActivity {
     EditText password2;
     EditText university;
     EditText username;
+    EditText nome;
+    EditText cognome;
     ImageButton show_or_hide_psw;
     ImageButton show_or_hide_psw2;
     Boolean flag;
@@ -65,7 +67,7 @@ public class SignUp extends AppCompatActivity {
     }
 
     public void showPsw2(View view){
-        password2 = (EditText) findViewById(R.id.ripeti_password); //prendo l'edit text della password.
+        password2 = (EditText) findViewById(R.id.password2); //prendo l'edit text della password.
         show_or_hide_psw2 = (ImageButton) findViewById(R.id.button_show_psw2); //prendo l'imagebutton per cambiare l'occhietto.
         if (password2.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())) { //se è nascosto
             //allora mostro la psw
@@ -89,6 +91,9 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
+        password2 = findViewById(R.id.password2);
+        nome = findViewById(R.id.nome);
+        cognome = findViewById(R.id.cognome);
         username = findViewById(R.id.username);
         mAuth = FirebaseAuth.getInstance();
     }
@@ -103,6 +108,11 @@ public class SignUp extends AppCompatActivity {
         if (password.getText().toString().length() < 6 )  {
             password.setError("La password deve avere almeno 6 caratteri");
             password.requestFocus();
+            return;
+        }
+        if (!password.getText().toString().equals(password2.getText().toString())) {
+            password2.setError("Le due password sono diverse");
+            password2.requestFocus();
             return;
         }
         if (username.getText().toString().length() < 6) {
@@ -157,21 +167,36 @@ public class SignUp extends AppCompatActivity {
                                                             user.put("Friends", new ArrayList<String>());
                                                             user.put("Courses", new ArrayList<String>());
                                                             user.put("Instagram", "");
-                                                            user.put("Name", "diocane");
-                                                            user.put("Password", password.getText().toString());
+                                                            user.put("Name", nome.getText().toString());
                                                             user.put("PostCreated", new ArrayList<String>());
                                                             user.put("PostVote", new ArrayList<>());
                                                             user.put("Subject", new ArrayList<String>());
-                                                            user.put("Surname", "gesù ladrone");
+                                                            user.put("Surname", cognome.getText().toString());
                                                             user.put("University", "La Sapienza");
                                                             user.put("TimeCreation", new Timestamp(System.currentTimeMillis()));
-                                                            db.collection("User").document(username.getText().toString())
+                                                            user.put("Username", username.getText().toString());
+                                                            db.collection("User").document(mAuth.getUid())
                                                                     .set(user)
                                                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                                         @Override
                                                                         public void onSuccess(Void aVoid) {
-                                                                            Intent intent = new Intent(getApplicationContext(), HomePage.class);
-                                                                            startActivity(intent);
+                                                                            Map<String, Object> Password = new HashMap<>();
+                                                                            Password.put("Value", password.getText().toString());
+                                                                            db.collection("User").document(mAuth.getUid()).collection("Password").document()
+                                                                                    .set(Password)
+                                                                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                                                        @Override
+                                                                                        public void onSuccess(Void aVoid) {
+                                                                                            Intent intent = new Intent(getApplicationContext(), HomePage.class);
+                                                                                            startActivity(intent);
+                                                                                        }
+                                                                                    })
+                                                                                    .addOnFailureListener(new OnFailureListener() {
+                                                                                        @Override
+                                                                                        public void onFailure(@NonNull Exception e) {
+                                                                                            Toast.makeText(SignUp.this, "errore nel creare l'account, riprova", Toast.LENGTH_SHORT).show();
+                                                                                        }
+                                                                                    });
                                                                         }
                                                                     })
                                                                     .addOnFailureListener(new OnFailureListener() {
@@ -180,7 +205,6 @@ public class SignUp extends AppCompatActivity {
                                                                             Toast.makeText(SignUp.this, "errore nel creare l'account, riprova", Toast.LENGTH_SHORT).show();
                                                                         }
                                                                     });
-
                                                         } else {
                                                             Toast.makeText(SignUp.this, "errore nel creare l'account, riprova", Toast.LENGTH_SHORT).show();
                                                         }

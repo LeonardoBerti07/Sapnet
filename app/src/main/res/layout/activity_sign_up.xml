@@ -81,13 +81,13 @@
         android:textColorHint="#939393"
         android:textSize="17sp"
         app:endIconMode="password_toggle"
-        app:layout_constraintBottom_toTopOf="@+id/ripeti_password"
+        app:layout_constraintBottom_toTopOf="@+id/password2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cognome" />
 
     <EditText
-        android:id="@+id/ripeti_password"
+        android:id="@+id/password2"
         android:layout_width="313dp"
         android:layout_height="51dp"
         android:layout_marginTop="482dp"
@@ -130,10 +130,10 @@
         android:layout_marginEnd="8dp"
         android:background="#00FFFFFF"
         android:onClick="showPsw2"
-        app:layout_constraintBottom_toBottomOf="@+id/ripeti_password"
-        app:layout_constraintEnd_toEndOf="@+id/ripeti_password"
-        app:layout_constraintStart_toStartOf="@+id/ripeti_password"
-        app:layout_constraintTop_toTopOf="@+id/ripeti_password"
+        app:layout_constraintBottom_toBottomOf="@+id/password2"
+        app:layout_constraintEnd_toEndOf="@+id/password2"
+        app:layout_constraintStart_toStartOf="@+id/password2"
+        app:layout_constraintTop_toTopOf="@+id/password2"
         app:srcCompat="@drawable/occhietto_show_pass"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 

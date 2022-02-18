@@ -18,9 +18,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class Login extends AppCompatActivity {
 
@@ -60,13 +61,15 @@ public class Login extends AppCompatActivity {
     public void goClicked(View view) {                          //check if we can log in the user and if we cant we sign up the user
 
         if (!Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches()) {     //se in input non abbiamo un email proviamo ad accedere con lo username
-            DocumentReference docRef = db.collection("User").document(email.getText().toString());
-            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                    if (task.isSuccessful()) {
-                        DocumentSnapshot document = task.getResult();
-                        if (document.exists()) {
+            db.collection("User")
+                    .whereEqualTo("Username", email.getText().toString())
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            boolean flag = false;
+                        if (task.isSuccessful()) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            flag = true;
                             EmailObtained = document.get("Email").toString();
                             mAuth.signInWithEmailAndPassword(EmailObtained, password.getText().toString()).addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
@@ -77,7 +80,8 @@ public class Login extends AppCompatActivity {
                                     }
                                 }
                             });
-                        } else {
+                        }
+                        if (!flag) {
                             email.setError("Lo username inserito non è corretto");
                             email.requestFocus();
                         }
@@ -88,16 +92,36 @@ public class Login extends AppCompatActivity {
                 }
             });
         } else {       //se abbiamo un email in input allora proviamo ad accedere con l'eamil
-            mAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        AlreadylogIn();
-                    } else {
-                        email.setError("L'email non è corretta");
-                        email.requestFocus();
-                    }
-                }
-            });
+            db.collection("User")
+                    .whereEqualTo("Email", email.getText().toString())
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            boolean flag = false;
+                            if (task.isSuccessful()) {
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    flag = true;
+                                    mAuth.signInWithEmailAndPassword((String) document.get("Email"), password.getText().toString()).addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
+                                        public void onComplete(@NonNull Task<AuthResult> task) {
+                                            if (task.isSuccessful()) {
+                                                AlreadylogIn();
+                                            } else {
+                                                email.setError("Lo username non è corretto");
+                                                email.requestFocus();
+                                            }
+                                        }
+                                    });
+                                }
+                                if (!flag) {
+                                    email.setError("Lo username non è corretto");
+                                    email.requestFocus();
+                                }
+                            } else {
+                                Toast.makeText(Login.this, "errore, riprova", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
         }
     }
 

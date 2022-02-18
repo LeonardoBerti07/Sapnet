@@ -9,6 +9,6 @@ public class ChooseCourse extends AppCompatActivity {   //qui è dove andrà la 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_choose_course2);
+        setContentView(R.layout.activity_choose_course);
     }
 }
