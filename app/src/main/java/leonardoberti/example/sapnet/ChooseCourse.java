@@ -4,19 +4,24 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -30,6 +35,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ChooseCourse extends AppCompatActivity {   //qui è dove andrà la lista dei corsi
 
@@ -39,6 +45,8 @@ public class ChooseCourse extends AppCompatActivity {   //qui è dove andrà la 
     ArrayAdapter<String> adapter;
     private FirebaseAuth mAuth;
     private String Uid;
+    private ArrayList<String> data = new ArrayList<String>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -53,7 +61,11 @@ public class ChooseCourse extends AppCompatActivity {   //qui è dove andrà la 
         setContentView(R.layout.activity_choose_course);
         mySearchView = (SearchView) findViewById(R.id.searchView);
         mySearchView.setFocusable(false);
-        list = (ListView) findViewById(R.id.myList);
+        ListView lv = (ListView) findViewById(R.id.myList);
+        generateListContent();
+        lv.setAdapter( new MyListAdapter(this, R.layout.list_item, data));
+
+        /*
         ArrayList<String> course = new ArrayList<String>();
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, course);
         list.setAdapter(adapter);
@@ -136,7 +148,16 @@ public class ChooseCourse extends AppCompatActivity {   //qui è dove andrà la 
             public void callSearch(String query) {
             }
         });
+
+         */
     }
+
+    private void generateListContent() {
+        for (int i=0; i<55; i++) {
+            data.add("this is row number");
+        }
+    }
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -192,5 +213,44 @@ public class ChooseCourse extends AppCompatActivity {   //qui è dove andrà la 
                         }
                     });
         }
+    }
+
+
+    private class MyListAdapter extends ArrayAdapter<String> {
+        private int layout;
+        public MyListAdapter(@NonNull Context context, int resource, @NonNull List<String> objects) {
+            super(context, resource, objects);
+            layout = resource;
+        }
+
+        @NonNull
+        @Override
+        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+            ViewHolder mainViewholder = null;
+            if (convertView == null) {
+                LayoutInflater inflater = LayoutInflater.from(getContext());
+                convertView = inflater.inflate(layout, parent, false);
+                ViewHolder viewHolder = new ViewHolder();
+                viewHolder.title = (TextView) convertView.findViewById(R.id.list_item_text);
+                viewHolder.button = (Button) convertView.findViewById(R.id.list_item_btn);
+                viewHolder.button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getContext(), "Button was clicked for list item " + position, Toast.LENGTH_SHORT ).show();
+                    }
+                });
+                convertView.setTag(viewHolder);
+            }
+            else {
+                mainViewholder = (ViewHolder) convertView.getTag();
+                mainViewholder.title.setText(getItem(position));
+            }
+            return convertView;
+        }
+    }
+    public class ViewHolder {
+        Button button;
+        TextView title;
+
     }
 }
