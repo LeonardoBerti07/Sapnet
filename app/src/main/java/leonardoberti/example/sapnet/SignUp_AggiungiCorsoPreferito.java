@@ -47,56 +47,7 @@ public class SignUp_AggiungiCorsoPreferito extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.freccia_back);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        /*
-        EditText field = (EditText) findViewById(R.id.nome);         //barra di ricerca
-        ListView list = findViewById(R.id.list);                      //listview dei corsi
-        ArrayList<String> course = new ArrayList<String>();           //array dei corsi
-        ArrayAdapter<String> adattatore = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, course);
-        list.setAdapter(adattatore);
-        list.setOnItemClickListener((new AdapterView.OnItemClickListener() {       //per far fare qualcosa quando clicca su un elemento della lista, prende le informazioni/vede del clock subito dopo il click, quindi se l’elemento da check diventa uncheck vedrà che è uncheck.
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-            }
-        }));
-        field.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (s.length() != 0) {
-                    Log.i("è TUTTO UN FALLIMENTO", s.toString());
-                    db.collection("Course")
-                            .whereGreaterThanOrEqualTo(FieldPath.documentId(), s.toString()).whereLessThanOrEqualTo(FieldPath.documentId(), s.toString() + '\uf8ff')
-                            .get()
-                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                @Override
-                                public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                    if (task.isSuccessful()) {
-                                        for (QueryDocumentSnapshot document : task.getResult()) {
-                                            if (!course.contains(document.getId())) {
-                                                course.add(document.getId());
-                                                adattatore.notifyDataSetChanged();
-                                            }
-                                        }
-                                        //Log.i("è TUTTO UN FALLIMENTO", "PORCANNO CRISTO");
-                                    } else {
-                                        //Log.i("è TUTTO UN FALLIMENTO", "PORCANNO CRISTO");
-                                    }
-                                }
-                            });
-                }
-                else {
-                    course.clear();
-                    adattatore.notifyDataSetChanged();
-                }
-            }
-            @Override
-
-            public void afterTextChanged(Editable s) {}
-        });
-
-         */
     }
 
     public void Add(View view) {

@@ -47,43 +47,6 @@ public class SignUp extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FirebaseAuth mAuth;
 
-    public void showPsw(View view){
-        password = (EditText) findViewById(R.id.password); //prendo l'edit text della password.
-        show_or_hide_psw = (ImageButton) findViewById(R.id.button_show_psw); //prendo l'imagebutton per cambiare l'occhietto.
-        if (password.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())) { //se è nascosto
-            //allora mostro la psw
-            password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-            //setto l'icona in occhietto_hide_pass
-            show_or_hide_psw.setImageResource(R.drawable.occhietto_hide_pass);
-            password.setSelection(password.getText().length()); //questo per far rimanere il "puntatore" del testo alla fine
-        }
-        else { //se invece la psw è già visibile
-            //la metto invisibile
-            password.setTransformationMethod(PasswordTransformationMethod.getInstance());
-            //setto l'icona in occhietto_show_pass
-            show_or_hide_psw.setImageResource(R.drawable.occhietto_show_pass);
-            password.setSelection(password.getText().length()); //questo per far rimanere il "puntatore" del testo alla fine
-        }
-    }
-
-    public void showPsw2(View view){
-        password2 = (EditText) findViewById(R.id.password2); //prendo l'edit text della password.
-        show_or_hide_psw2 = (ImageButton) findViewById(R.id.button_show_psw2); //prendo l'imagebutton per cambiare l'occhietto.
-        if (password2.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())) { //se è nascosto
-            //allora mostro la psw
-            password2.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-            //setto l'icona in occhietto_hide_pass
-            show_or_hide_psw2.setImageResource(R.drawable.occhietto_hide_pass);
-            password2.setSelection(password2.getText().length()); //questo per far rimanere il "puntatore" del testo alla fine
-        }
-        else { //se invece la psw è già visibile
-            //la metto invisibile
-            password2.setTransformationMethod(PasswordTransformationMethod.getInstance());
-            //setto l'icona in occhietto_show_pass
-            show_or_hide_psw2.setImageResource(R.drawable.occhietto_show_pass);
-            password2.setSelection(password2.getText().length()); //questo per far rimanere il "puntatore" del testo alla fine
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,6 +91,36 @@ public class SignUp extends AppCompatActivity {
         if (!username.getText().toString().matches("^[a-zA-Z0-9._-]*$")) {
             username.setError("Lo username può contenere solo numeri e/o lettere");
             username.requestFocus();
+            return;
+        }
+        if (!nome.getText().toString().matches("^[a-zA-Z]*$")) {
+            nome.setError("Il nome può contenere solo lettere");
+            nome.requestFocus();
+            return;
+        }
+        if (!cognome.getText().toString().matches("^[a-zA-Z]*$")) {
+            cognome.setError("Il nome può contenere solo lettere");
+            cognome.requestFocus();
+            return;
+        }
+        if (nome.getText().toString().length() < 6) {
+            nome.setError("Lo username deve avere almeno 6 caratteri");
+            nome.requestFocus();
+            return;
+        }
+        if (nome.getText().toString().length() > 16) {
+            nome.setError("Lo username può avere al massimo 16 caratteri");
+            nome.requestFocus();
+            return;
+        }
+        if (cognome.getText().toString().length() < 6) {
+            cognome.setError("Lo username deve avere almeno 6 caratteri");
+            cognome.requestFocus();
+            return;
+        }
+        if (cognome.getText().toString().length() > 16) {
+            cognome.setError("Lo username può avere al massimo 16 caratteri");
+            cognome.requestFocus();
             return;
         }
         AlreadyExist(username.getText().toString());
@@ -175,6 +168,9 @@ public class SignUp extends AppCompatActivity {
                                                             user.put("University", "La Sapienza");
                                                             user.put("TimeCreation", new Timestamp(System.currentTimeMillis()));
                                                             user.put("Username", username.getText().toString());
+                                                            user.put("CourseNotification", new ArrayList<String>());
+                                                            user.put("SubjectNotification", new ArrayList<String>());
+                                                            user.put("Role", "normal");
                                                             db.collection("User").document(mAuth.getUid())
                                                                     .set(user)
                                                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -182,6 +178,7 @@ public class SignUp extends AppCompatActivity {
                                                                         public void onSuccess(Void aVoid) {
                                                                             Map<String, Object> Password = new HashMap<>();
                                                                             Password.put("Value", password.getText().toString());
+                                                                            Password.put("UserId", mAuth.getUid());
                                                                             db.collection("User").document(mAuth.getUid()).collection("Password").document()
                                                                                     .set(Password)
                                                                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -228,4 +225,42 @@ public class SignUp extends AppCompatActivity {
             }
         });
     }
+    public void showPsw(View view){
+        password = (EditText) findViewById(R.id.password); //prendo l'edit text della password.
+        show_or_hide_psw = (ImageButton) findViewById(R.id.button_show_psw); //prendo l'imagebutton per cambiare l'occhietto.
+        if (password.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())) { //se è nascosto
+            //allora mostro la psw
+            password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            //setto l'icona in occhietto_hide_pass
+            show_or_hide_psw.setImageResource(R.drawable.occhietto_hide_pass);
+            password.setSelection(password.getText().length()); //questo per far rimanere il "puntatore" del testo alla fine
+        }
+        else { //se invece la psw è già visibile
+            //la metto invisibile
+            password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            //setto l'icona in occhietto_show_pass
+            show_or_hide_psw.setImageResource(R.drawable.occhietto_show_pass);
+            password.setSelection(password.getText().length()); //questo per far rimanere il "puntatore" del testo alla fine
+        }
+    }
+
+    public void showPsw2(View view){
+        password2 = (EditText) findViewById(R.id.password2); //prendo l'edit text della password.
+        show_or_hide_psw2 = (ImageButton) findViewById(R.id.button_show_psw2); //prendo l'imagebutton per cambiare l'occhietto.
+        if (password2.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())) { //se è nascosto
+            //allora mostro la psw
+            password2.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            //setto l'icona in occhietto_hide_pass
+            show_or_hide_psw2.setImageResource(R.drawable.occhietto_hide_pass);
+            password2.setSelection(password2.getText().length()); //questo per far rimanere il "puntatore" del testo alla fine
+        }
+        else { //se invece la psw è già visibile
+            //la metto invisibile
+            password2.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            //setto l'icona in occhietto_show_pass
+            show_or_hide_psw2.setImageResource(R.drawable.occhietto_show_pass);
+            password2.setSelection(password2.getText().length()); //questo per far rimanere il "puntatore" del testo alla fine
+        }
+    }
+
 }
