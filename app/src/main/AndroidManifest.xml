@@ -12,7 +12,8 @@
         <activity
             android:name=".ChooseCourse"
             android:exported="false"
-            android:theme="@style/Theme.CercaCorso" />
+            android:theme="@style/Theme.CercaCorso"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".SignUp_AggiungiCorsoPreferito"
             android:exported="false"
