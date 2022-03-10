@@ -47,7 +47,6 @@ public class SignUp extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FirebaseAuth mAuth;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -184,7 +183,7 @@ public class SignUp extends AppCompatActivity {
                                                                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                                                         @Override
                                                                                         public void onSuccess(Void aVoid) {
-                                                                                            Intent intent = new Intent(getApplicationContext(), HomePage.class);
+                                                                                            Intent intent = new Intent(getApplicationContext(), SignUp_AggiungiCorsoPreferito.class);
                                                                                             startActivity(intent);
                                                                                         }
                                                                                     })

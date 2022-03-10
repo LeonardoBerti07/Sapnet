@@ -8,12 +8,10 @@
     android:orientation="vertical"
     tools:context=".ChooseCourse">
 
-
     <SearchView
         android:id="@+id/searchView"
         android:layout_width="335dp"
         android:layout_height="33dp"
-
         android:background="@drawable/search_rounded_corner"
         android:backgroundTint="@color/search_bar_color"
         android:iconifiedByDefault="false"
@@ -22,15 +20,17 @@
         app:layout_constraintBottom_toTopOf="@+id/myList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.466" />
 
     <ListView
         android:id="@+id/myList"
-        android:layout_width="330dp"
-        android:layout_height="522dp"
+        android:layout_width="321dp"
+        android:layout_height="451dp"
+        android:layout_marginBottom="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        ></ListView>
+        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintStart_toStartOf="parent"></ListView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
