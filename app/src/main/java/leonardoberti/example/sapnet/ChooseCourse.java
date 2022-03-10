@@ -1,7 +1,6 @@
 package leonardoberti.example.sapnet;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,7 +24,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FieldPath;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -38,6 +40,10 @@ public class ChooseCourse extends AppCompatActivity {   //qui è dove andrà la 
 
     SearchView mySearchView;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
+    ListView list;
+    ArrayAdapter<String> adapter;
+    private FirebaseAuth mAuth;
+    private String Uid;
     private ArrayList<String> data = new ArrayList<String>();
 
     @Override
@@ -48,11 +54,14 @@ public class ChooseCourse extends AppCompatActivity {   //qui è dove andrà la 
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.freccia_back);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-
+        mAuth = FirebaseAuth.getInstance();
+        Uid = mAuth.getCurrentUser().getUid();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_course);
         mySearchView = (SearchView) findViewById(R.id.searchView);
         mySearchView.setFocusable(false);
+
+        //da fixare
         ListView lv = (ListView) findViewById(R.id.myList);
         generateListContent();
         lv.setAdapter( new MyListAdapter(this, R.layout.list_item, data));
@@ -67,10 +76,30 @@ public class ChooseCourse extends AppCompatActivity {   //qui è dove andrà la 
 
             }
         }));
-
-
-
-
+        db.collection("Course")                                            //metto nella lista in ordine alfabetico tutti i corsi
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        boolean flag = false;
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                flag = true;
+                                if (!course.contains(document.getId())) {
+                                    course.add(document.getId());
+                                    adapter.notifyDataSetChanged();
+                                }
+                            }
+                            if (!flag) {
+                                course.clear();
+                                adapter.notifyDataSetChanged();
+                            }
+                            //Log.i("è TUTTO UN FALLIMENTO", "PORCANNO CRISTO");
+                        } else {
+                            //Log.i("è TUTTO UN FALLIMENTO", "PORCANNO CRISTO");
+                        }
+                    }
+                });
         mySearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -79,8 +108,12 @@ public class ChooseCourse extends AppCompatActivity {   //qui è dove andrà la 
 
             @Override
             public boolean onQueryTextChange(String newText) {              //aggiorno la lista man mano che l'user digita
+                course.clear();
                 if (newText.length() != 0) {
-                    //Log.i("è TUTTO UN FALLIMENTO", newText);
+                    if (Character.isLowerCase(newText.charAt(0))) {
+                        newText = Character.toUpperCase(newText.charAt(0)) + newText.substring(1);
+                    }
+                    Log.i("GINOOOOOOOOOOOOOOOOOO", newText);
                     db.collection("Course")
                             .whereGreaterThanOrEqualTo(FieldPath.documentId(), newText).whereLessThanOrEqualTo(FieldPath.documentId(), newText + '\uf8ff')
                             .get()
@@ -143,6 +176,44 @@ public class ChooseCourse extends AppCompatActivity {   //qui è dove andrà la 
     public boolean onCreateOptionsMenu (Menu menu) {
         getMenuInflater().inflate(R.menu.salta, menu);
         return true;
+    }
+
+    public void Segui(View view) {
+        Button bottone = (Button) view;
+        if (bottone.getText().equals("segui")) {               //premi il bottone ed è in versione Segui
+            db.collection("User").document(Uid)
+                    .update("Courses", FieldValue.arrayUnion(elemento a cui è associato il bottone))
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            //aggiornare il bottone
+                            bottone.setText("non seguire più");
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+
+                        }
+                    });
+        }
+        else {
+            db.collection("User").document(Uid)         //premi il bottone ed è in versione non seguire più
+                    .update("Courses", FieldValue.arrayRemove(elemento a cui è associato il bottone da rimuovere))
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            //aggiornare il bottone
+                            bottone.setText("non seguire più");
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+
+                        }
+                    });
+        }
     }
 
 
