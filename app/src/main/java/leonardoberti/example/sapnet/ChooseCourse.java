@@ -1,6 +1,7 @@
 package leonardoberti.example.sapnet;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,10 +15,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -40,11 +43,10 @@ public class ChooseCourse extends AppCompatActivity {   //qui è dove andrà la 
 
     SearchView mySearchView;
     FirebaseFirestore db = FirebaseFirestore.getInstance();
-    ListView list;
-    ArrayAdapter<String> adapter;
+    ListView lv;
     private FirebaseAuth mAuth;
     private String Uid;
-    private ArrayList<String> data = new ArrayList<String>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,17 +62,12 @@ public class ChooseCourse extends AppCompatActivity {   //qui è dove andrà la 
         setContentView(R.layout.activity_choose_course);
         mySearchView = (SearchView) findViewById(R.id.searchView);
         mySearchView.setFocusable(false);
-
-        //da fixare
-        ListView lv = (ListView) findViewById(R.id.myList);
-        generateListContent();
-        lv.setAdapter( new MyListAdapter(this, R.layout.list_item, data));
-
-        /*
         ArrayList<String> course = new ArrayList<String>();
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, course);
-        list.setAdapter(adapter);
-        list.setOnItemClickListener((new AdapterView.OnItemClickListener() {       //per far fare qualcosa quando clicca su un elemento della lista, prende le informazioni/vede del clock subito dopo il click, quindi se l’elemento da check diventa uncheck vedrà che è uncheck.
+        lv = (ListView) findViewById(R.id.myList);
+
+        MyListAdapter adapter = new MyListAdapter(this, R.layout.list_item, course);
+        lv.setAdapter(adapter);
+        lv.setOnItemClickListener((new AdapterView.OnItemClickListener() {       //per far fare qualcosa quando clicca su un elemento della lista, prende le informazioni/vede del clock subito dopo il click, quindi se l’elemento da check diventa uncheck vedrà che è uncheck.
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -150,14 +147,9 @@ public class ChooseCourse extends AppCompatActivity {   //qui è dove andrà la 
             }
         });
 
-         */
+
     }
 
-    private void generateListContent() {
-        for (int i=0; i<55; i++) {
-            data.add("this is row number");
-        }
-    }
 
 
     @Override
@@ -177,7 +169,7 @@ public class ChooseCourse extends AppCompatActivity {   //qui è dove andrà la 
         getMenuInflater().inflate(R.menu.salta, menu);
         return true;
     }
-
+/*
     public void Segui(View view) {
         Button bottone = (Button) view;
         if (bottone.getText().equals("segui")) {               //premi il bottone ed è in versione Segui
@@ -216,6 +208,8 @@ public class ChooseCourse extends AppCompatActivity {   //qui è dove andrà la 
         }
     }
 
+ */
+
 
     private class MyListAdapter extends ArrayAdapter<String> {
         private int layout;
@@ -238,6 +232,7 @@ public class ChooseCourse extends AppCompatActivity {   //qui è dove andrà la 
                     @Override
                     public void onClick(View v) {
                         Toast.makeText(getContext(), "Button was clicked for list item " + position, Toast.LENGTH_SHORT ).show();
+                        // qua va fatto il metodo segui
                     }
                 });
                 convertView.setTag(viewHolder);
