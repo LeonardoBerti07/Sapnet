@@ -10,8 +10,12 @@ The app offers the following services:
 6. Private chat
 
 
-The first part of analysis and design was for a university project then we decided to continue moving on to programming.
+The first part of analysis and design was for a university project then we decided to continue moving on to programming, we used Android Studio and Firebase.
 I leave the link of the [figma project](https://www.figma.com/proto/jGUJ68G8nj34majUGd5kiw/home-page?node-id=436%3A11189&scaling=min-zoom&page-id=273%3A2496&starting-point-node-id=436%3A11189) and [the documentation of the entire project also with the analysis and the design](https://github.com/LeonardoBerti07/Sapnet/blob/main/Documentation.pdf).
+
+I mainly dealt with the backend (I also helped in the frontend), to make the database I used firebase to which I connect directly from java thanks to the library.
+
+The code of the main screens are here -> app/src/main/java/leonardoberti/example/sapnet
 
 App programming has stopped as my friends and I are graduating but will resume as soon as possible
 
