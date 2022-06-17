@@ -19,4 +19,4 @@ The code of the main screens are here -> app/src/main/java/leonardoberti/example
 
 App programming has stopped as my friends and I are graduating but will resume as soon as possible
 
-PS. When starting this project i had never used github yet so the commits are very confusing, since we often programmed in call it was not a problem
+PS. When starting this project I had never used github yet and we often programm at the same time in call, in which we also did the review of the code, so the commits are really confusing.
